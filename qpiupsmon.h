@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QTimer>
 #include <QTextStream>
+#include <QSettings>
 
 #include <qmqtt_client.h>
 class qpiupsmon : public QMQTT::Client {
@@ -20,9 +21,15 @@ typedef struct {
 } t_piups;
 
 public:
-    explicit qpiupsmon(const QHostAddress& host = QHostAddress::LocalHost,
-                       const quint16 port = 1883,
+    explicit qpiupsmon(const QHostAddress& host,
+                       const quint16 port,
+                       bool print,
+                       bool debug = false,
                        QObject *parent = nullptr);
+
+    qpiupsmon(QString configFile,
+              bool debug = false,
+              QObject *parent = nullptr);
 
 signals:
 
@@ -35,6 +42,10 @@ private:
     QTimer messtimer;
 
     t_piups piupsVal;
+    QSettings *config;
+
+    bool printing;
+    bool debugging;
 };
 
 #endif // QPIUPSMON_H

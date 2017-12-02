@@ -20,7 +20,7 @@ and sends the data to an MQTT broker.
 
 ## Dependencies ##
 
-### bcm28355-library ###
+### bcm2835-library ###
 http://www.airspayce.com/mikem/bcm2835/  
 Version 1.52  
 
