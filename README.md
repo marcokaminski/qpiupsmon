@@ -20,6 +20,10 @@ and sends the data to an MQTT broker.
 
 ## Dependencies ##
 
+### Qt5.7.1 ###
+Rasbian:  
+    sudo apt-get install qt5-default
+
 ### bcm2835-library ###
 http://www.airspayce.com/mikem/bcm2835/  
 Version 1.52  
